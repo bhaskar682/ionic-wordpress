@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Quotes</ion-title>
+  
+    
+      <ion-col size="12" slot=end *ngIf="(authService.isAuthenticated | async)"   >
+        <ion-button color="success" routerLink="/tabs/qoutes/edit-qoute">
+          <ion-icon slot="start" name="add">
+            Edit
+          </ion-icon>
+        </ion-button>
+      </ion-col>
+        
+  
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-grid fixed>
+  <ion-row>
+    <ion-col size="12"></ion-col>
+  <ion-list *ngIf="qoutes.length > 0">
+    <ion-item>
+      <ion-item detail *ngFor="let qoute of qoutes" routerLink="/tabs/qoutes/{{qoute.id}}">
+        <ion-label text-wrap>
+         <ion-item lines="none">
+           <h2>
+             {{qoute.title.rendered}}
+           
+           </h2>
+         </ion-item>
+         <ion-item lines="none">
+           <p>`{{qoute.writer}}</p>
+         </ion-item>
+        </ion-label>
+      </ion-item>
+    </ion-item>
+  </ion-list> <ion-col size="12"></ion-col>
+  <ion-list *ngIf="qoutes.length === 0">
+    <ion-item>
+      <ion-item detail *ngFor="let qoute of [].constructor(10)">
+        <ion-label text-wrap>
+         <ion-item lines="none">
+           <h2>
+            <ion-skeleton-text width="100%"></ion-skeleton-text>
+            <ion-skeleton-text width="80%"></ion-skeleton-text>
+           </h2>
+         </ion-item>
+         <ion-item lines="none">
+          <ion-skeleton-text width="40%"></ion-skeleton-text>
+         </ion-item>
+        </ion-label>
+      </ion-item>
+    </ion-item>
+  </ion-list>
+
+  </ion-row>
+</ion-grid>
+</ion-content>

@@ -1,0 +1,22 @@
+ion-content {
+    --background: #588066;
+    --color: #black;
+    }
+    ion-item {
+    --background: #588066;
+    --color: #black;
+    }
+    
+    ion-button{
+    --background: black;
+    --color:black;
+    }
+    .item-inner {
+        flex-direction: row-reverse !important;
+      }
+      .icon {
+     display: inline-block;
+     font-size: 35px;
+     color: #ffC977;
+     vertical-align: middle;
+    }

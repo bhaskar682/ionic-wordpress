@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Qoute-details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+      <ion-item line="none">
+        <ion-item >
+          <ion-label text-wrap>
+           <ion-item lines="none">
+             <h2 [innerHTML]>
+               {{qoutes?.title.rendered}}
+             
+             </h2>
+           </ion-item>
+           <ion-item lines="none">
+             <p>{{qoutes?.writer}}</p>
+           </ion-item>
+          </ion-label>
+        </ion-item>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12"*ngIf="(authService.isAuthenticated | async)"   >
+ <ion-button color="primary">
+   <ion-icon slot="start" name="create">
+     Edit
+   </ion-icon>
+ </ion-button>
+ <ion-button color="danger">
+  <ion-icon slot="start" name="trash">
+    Delete
+  </ion-icon>
+</ion-button>
+    </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
